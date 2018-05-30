@@ -1,7 +1,5 @@
 package com.instacart.android.challenges;
 
-import com.instacart.android.challenges.network.DeliveryItem;
-
 import java.util.ArrayList;
 
 import io.reactivex.annotations.Nullable;
@@ -17,12 +15,12 @@ public class MainActivityViewModel {
     private UpdateListener listener;
 
     public MainActivityViewModel() {
-        ArrayList<DeliveryItem> deliveryItems = new ArrayList<>();
-        deliveryItems.add(new DeliveryItem(1, "Cabbage", "", 1));
-        deliveryItems.add(new DeliveryItem(2, "Apple", "", 5));
-        deliveryItems.add(new DeliveryItem(3, "Bread", "", 2));
+        ArrayList<ItemRow> items = new ArrayList<>();
+        items.add(new ItemRow("Cabbage"));
+        items.add(new ItemRow("Apple"));
+        items.add(new ItemRow("Bread"));
 
-        itemListState = new ItemListState("Delivery Items", deliveryItems);
+        itemListState = new ItemListState("Delivery Items", items);
     }
 
     public void setStateUpdateListener(@Nullable UpdateListener listener) {
