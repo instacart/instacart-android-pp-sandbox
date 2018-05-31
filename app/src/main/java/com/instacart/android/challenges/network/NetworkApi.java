@@ -1,17 +1,17 @@
 package com.instacart.android.challenges.network;
 
-import io.reactivex.Single;
+import io.reactivex.Observable;
 import retrofit2.http.GET;
 import retrofit2.http.Path;
 
 public interface NetworkApi {
 
   @GET("orders")
-  Single<OrdersResponse> fetchOrders();
+  Observable<OrdersResponse> fetchOrders();
 
   @GET("order/{order_id}")
-  Single<OrderResponse> fetchOrderById(@Path("order_id") long id);
+  Observable<OrderResponse> fetchOrderById(@Path("order_id") long id);
 
   @GET("discount/{item_id}")
-  Single<DiscountResponse> discount(@Path("item_id") long id);
+  Observable<DiscountResponse> discount(@Path("item_id") long id);
 }
