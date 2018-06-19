@@ -32,6 +32,7 @@ allprojects {
         rxJavaVersion = "2.1.13"
         rxKotlinVersion = "2.2.0"
         rxAndroidVersion = "2.0.1"
+        coroutinesVersion = "0.23.3"
     }
 }
 
