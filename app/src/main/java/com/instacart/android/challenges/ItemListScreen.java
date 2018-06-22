@@ -21,7 +21,7 @@ public class ItemListScreen {
         recyclerView.setAdapter(adapter);
     }
 
-    public void render(ItemListState state) {
+    public void render(ItemListViewState state) {
 
     }
 }

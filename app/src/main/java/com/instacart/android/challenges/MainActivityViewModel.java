@@ -7,10 +7,10 @@ import io.reactivex.annotations.Nullable;
 public class MainActivityViewModel {
 
     interface UpdateListener {
-        void onUpdate(ItemListState state);
+        void onUpdate(ItemListViewState state);
     }
 
-    private ItemListState itemListState;
+    private ItemListViewState itemListViewState;
 
     private UpdateListener listener;
 
@@ -20,14 +20,14 @@ public class MainActivityViewModel {
         items.add(new ItemRow("Apple"));
         items.add(new ItemRow("Bread"));
 
-        itemListState = new ItemListState("Delivery Items", items);
+        itemListViewState = new ItemListViewState("Delivery Items", items);
     }
 
     public void setStateUpdateListener(@Nullable UpdateListener listener) {
         this.listener = listener;
 
         if (listener != null) {
-            listener.onUpdate(itemListState);
+            listener.onUpdate(itemListViewState);
         }
     }
 }
