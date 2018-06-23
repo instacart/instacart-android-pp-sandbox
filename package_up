@@ -5,6 +5,7 @@ pwd=$(pwd)
 
 
 echo "-- cleaning build files"
-rm -rf build
+./gradlew clean
 
+echo "-- zipping project"
 zip -r $pwd/../$zip_filename $pwd/*
