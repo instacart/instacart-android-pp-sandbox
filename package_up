@@ -1,0 +1,11 @@
+#!/bin/bash
+
+zip_filename=instacart-pp-$(whoami).zip
+pwd=$(pwd)
+
+
+echo "-- cleaning build files"
+./gradlew clean
+
+echo "-- zipping project"
+zip -r $pwd/../$zip_filename $pwd/*
