@@ -7,14 +7,21 @@ import retrofit2.http.Path;
 
 public interface NetworkApi {
 
-  // Note : Feel free to use LiveData, RxJava, Coroutines, or whatever other tech works for you in order to interact with this API
-
   @GET("orders")
   Call<OrdersResponse> fetchOrders();
+  
+  @GET("orders")
+  Observable<OrdersResponse> fetchOrdersObservable();
 
   @GET("order/{order_id}")
   Call<OrderResponse> fetchOrderById(@Path("order_id") long id);
+  
+  @GET("order/{order_id}")
+  Observable<OrderResponse> fetchOrderByIdObservable(@Path("order_id") long id);
 
   @GET("discount/{item_id}")
   Call<DiscountResponse> discount(@Path("item_id") long id);
+  
+  @GET("discount/{item_id}")
+  Observable<DiscountResponse> discountObservable(@Path("item_id") long id);
 }
