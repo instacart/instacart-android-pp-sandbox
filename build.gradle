@@ -31,6 +31,7 @@ allprojects {
         rxKotlinVersion = "2.2.0"
         rxAndroidVersion = "2.1.0"
         coroutinesVersion = "0.27.0"
+        okhttpVersion = "3.11.0"
     }
 }
 
