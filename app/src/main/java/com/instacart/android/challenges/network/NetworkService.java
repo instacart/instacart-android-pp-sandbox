@@ -12,7 +12,7 @@ public class NetworkService {
     private Retrofit getRetrofit() {
         if (retrofit == null) {
             retrofit = new Builder()
-                    .baseUrl("http://boiling-dusk-12902.herokuapp.com/")
+                    .baseUrl("https://boiling-dusk-12902.herokuapp.com/")
                     .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                     .addConverterFactory(GsonConverterFactory.create())
                     .build();
