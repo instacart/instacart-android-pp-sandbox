@@ -1,14 +1,14 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
 buildscript {
-    ext.kotlin_version = '1.2.41'
+    ext.kotlin_version = '1.2.71'
 
     repositories {
         google()
         jcenter()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.1.2'
+        classpath 'com.android.tools.build:gradle:3.2.0'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
 
         // NOTE: Do not place your application dependencies here; they belong
@@ -23,16 +23,15 @@ allprojects {
     }
 
     ext {
-        minSdkVrs = 19
-        sdkVersion = 27
-
+        androidXVersion = "1.0.0"
         butterKnifeVersion = "8.8.1"
-        retrofitVersion = "2.3.0"
-        timberVersion = "4.6.0"
-        rxJavaVersion = "2.1.13"
+        retrofitVersion = "2.4.0"
+        timberVersion = "4.7.1"
+        rxJavaVersion = "2.2.2"
         rxKotlinVersion = "2.2.0"
-        rxAndroidVersion = "2.0.1"
-        coroutinesVersion = "0.23.3"
+        rxAndroidVersion = "2.1.0"
+        coroutinesVersion = "0.27.0"
+        okhttpVersion = "3.11.0"
     }
 }
 

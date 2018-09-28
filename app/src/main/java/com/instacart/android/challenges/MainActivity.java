@@ -1,12 +1,13 @@
 package com.instacart.android.challenges;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
+
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -22,9 +23,7 @@ public class MainActivity extends AppCompatActivity {
         bindViews(itemScreenContainerView);
 
         MainActivityViewModel viewModel = new MainActivityViewModel();
-        viewModel.setStateUpdateListener(state -> {
-            renderItemList(state);
-        });
+        viewModel.setStateUpdateListener(this::renderItemList);
     }
 
     private void renderItemList(ItemListViewState state) { }
@@ -33,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
         toolbar = parent.findViewById(R.id.toolbar);
 
         recyclerView = parent.findViewById(R.id.recycler_view);
-        recyclerView.setLayoutManager(new LinearLayoutManager(parent.getContext(), LinearLayoutManager.VERTICAL, false));;
+        recyclerView.setLayoutManager(new LinearLayoutManager(parent.getContext(), RecyclerView.VERTICAL, false));;
 
         adapter = new ItemAdapter();
         recyclerView.setAdapter(adapter);
