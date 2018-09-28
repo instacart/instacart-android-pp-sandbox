@@ -23,6 +23,7 @@ allprojects {
     }
 
     ext {
+        androidXVersion = "1.0.0"
         butterKnifeVersion = "8.8.1"
         retrofitVersion = "2.4.0"
         timberVersion = "4.7.1"
