@@ -23,14 +23,11 @@ allprojects {
     }
 
     ext {
-        androidXVersion = "1.0.0"
-        butterKnifeVersion = "10.0.0"
         retrofitVersion = "2.5.0"
-        timberVersion = "4.7.1"
         rxJavaVersion = "2.2.5"
         rxKotlinVersion = "2.3.0"
         rxAndroidVersion = "2.1.0"
-        coroutinesVersion = "1.1.0"
+        coroutinesVersion = "1.1.1"
         okhttpVersion = "3.12.1"
     }
 }
