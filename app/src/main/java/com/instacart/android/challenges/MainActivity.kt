@@ -22,7 +22,9 @@ class MainActivity : AppCompatActivity() {
         viewModel = ViewModelProviders.of(this).get()
     }
 
-    private fun renderItemList(state: ItemListViewState) {}
+    private fun renderItemList(state: ItemListViewState) {
+
+    }
 
     private fun bindViews() {
         toolbar = findViewById(R.id.toolbar)
