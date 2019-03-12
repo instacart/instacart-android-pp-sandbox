@@ -19,7 +19,11 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         bindViews()
+
         viewModel = ViewModelProviders.of(this).get()
+        viewModel.setStateUpdateListener(object : MainActivityViewModel.UpdateListener {
+            override fun onUpdate(state: ItemListViewState) = renderItemList(state)
+        })
     }
 
     private fun renderItemList(state: ItemListViewState) {
@@ -35,5 +39,10 @@ class MainActivity : AppCompatActivity() {
 
         adapter = ItemAdapter()
         recyclerView.adapter = adapter
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        viewModel.setStateUpdateListener(null)
     }
 }
