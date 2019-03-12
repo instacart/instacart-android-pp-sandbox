@@ -1,14 +1,15 @@
 package com.instacart.android.challenges
 
-import io.reactivex.annotations.Nullable
+import android.app.Application
+import androidx.lifecycle.AndroidViewModel
 
-class MainActivityViewModel {
+class MainActivityViewModel(application: Application) : AndroidViewModel(application) {
 
     interface UpdateListener {
         fun onUpdate(state: ItemListViewState)
     }
 
-    private val itemListViewState: ItemListViewState
+    private var itemListViewState: ItemListViewState
     private var listener: UpdateListener? = null
 
     init {
@@ -21,7 +22,7 @@ class MainActivityViewModel {
         itemListViewState = ItemListViewState("Delivery Items", items)
     }
 
-    fun setStateUpdateListener(@Nullable listener: UpdateListener?) {
+    fun setStateUpdateListener(listener: UpdateListener?) {
         this.listener = listener
 
         listener?.onUpdate(itemListViewState)

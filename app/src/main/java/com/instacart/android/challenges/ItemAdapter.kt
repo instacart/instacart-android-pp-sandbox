@@ -3,9 +3,8 @@ package com.instacart.android.challenges
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-
-import java.util.ArrayList
 import androidx.recyclerview.widget.RecyclerView
+import java.util.ArrayList
 
 class ItemAdapter : RecyclerView.Adapter<ItemAdapter.ViewHolder>() {
 
