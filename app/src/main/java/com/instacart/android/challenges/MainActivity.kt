@@ -40,9 +40,4 @@ class MainActivity : AppCompatActivity() {
         adapter = ItemAdapter()
         recyclerView.adapter = adapter
     }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        viewModel.setStateUpdateListener(null)
-    }
 }
