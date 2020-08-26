@@ -9,3 +9,5 @@ echo "-- cleaning build files"
 
 echo "-- zipping project"
 zip -r $pwd/../$zip_filename $pwd/*
+
+echo "-- project zipped to ${pwd/../$zip_filename}"
