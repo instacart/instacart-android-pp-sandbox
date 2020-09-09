@@ -13,15 +13,24 @@ interface NetworkApi {
     @GET("orders")
     fun fetchOrdersObservable(): Observable<OrdersResponse>
 
+    @GET("orders")
+    suspend fun fetchOrdersCoroutine(): OrdersResponse
+
     @GET("order/{order_id}")
     fun fetchOrderById(@Path("order_id") id: Long): Call<OrderResponse>
 
     @GET("order/{order_id}")
     fun fetchOrderByIdObservable(@Path("order_id") id: Long): Observable<OrderResponse>
 
+    @GET("order/{order_id}")
+    suspend fun fetchOrderByIdCoroutine(@Path("order_id") id: Long): OrderResponse
+
     @GET("discount/{item_id}")
     fun discount(@Path("item_id") id: Long): Call<DiscountResponse>
 
     @GET("discount/{item_id}")
     fun discountObservable(@Path("item_id") id: Long): Observable<DiscountResponse>
+
+    @GET("discount/{item_id}")
+    suspend fun discountCoroutine(@Path("item_id") id: Long): DiscountResponse
 }
