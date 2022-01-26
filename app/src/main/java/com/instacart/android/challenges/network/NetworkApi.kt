@@ -7,15 +7,6 @@ import retrofit2.http.Path
 
 interface NetworkApi {
 
-    @GET("orders")
-    fun fetchOrders(): Call<OrdersResponse>
-
-    @GET("orders")
-    fun fetchOrdersObservable(): Observable<OrdersResponse>
-
-    @GET("orders")
-    suspend fun fetchOrdersCoroutine(): OrdersResponse
-
     @GET("order/{order_id}")
     fun fetchOrderById(@Path("order_id") id: Long): Call<OrderResponse>
 
@@ -24,6 +15,15 @@ interface NetworkApi {
 
     @GET("order/{order_id}")
     suspend fun fetchOrderByIdCoroutine(@Path("order_id") id: Long): OrderResponse
+
+    @GET("orders")
+    fun fetchOrders(): Call<OrdersResponse>
+
+    @GET("orders")
+    fun fetchOrdersObservable(): Observable<OrdersResponse>
+
+    @GET("orders")
+    suspend fun fetchOrdersCoroutine(): OrdersResponse
 
     @GET("discount/{item_id}")
     fun discount(@Path("item_id") id: Long): Call<DiscountResponse>
