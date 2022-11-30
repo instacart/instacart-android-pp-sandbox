@@ -1,6 +1,6 @@
 package com.instacart.android.challenges.network
 
-class DiscountResponse(
+class PriceResponse(
     val id: Long,
     val price: String,
     val discount: String
