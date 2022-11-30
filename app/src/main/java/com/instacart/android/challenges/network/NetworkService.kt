@@ -7,7 +7,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 class NetworkService {
     private val retrofit: Retrofit = Builder()
-        .baseUrl("https://boiling-dusk-12902.herokuapp.com/")
+        .baseUrl("https://instacart-challenge.glitch.me/")
         .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
         .addConverterFactory(GsonConverterFactory.create())
         .build()
