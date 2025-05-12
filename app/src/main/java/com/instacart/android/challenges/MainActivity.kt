@@ -1,42 +1,65 @@
 package com.instacart.android.challenges
 
 import android.os.Bundle
+import androidx.activity.ComponentActivity
+import androidx.activity.compose.setContent
+import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
-import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.Toolbar
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.navigationBarsPadding
+import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBar
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import com.instacart.android.challenges.ui.internal.BottomBarIcons
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : ComponentActivity() {
 
     private val viewModel: MainActivityViewModel by viewModels()
-
-    private lateinit var toolbar: Toolbar
-    private lateinit var recyclerView: RecyclerView
-    private lateinit var adapter: ItemAdapter
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        bindViews()
+        enableEdgeToEdge()
 
-        viewModel.setStateUpdateListener(object : MainActivityViewModel.UpdateListener {
-            override fun onUpdate(state: ItemListViewState) = renderItemList(state)
-        })
+        viewModel.setStateUpdateListener(
+            object : MainActivityViewModel.UpdateListener {
+                override fun onUpdate(state: ItemListViewState) {
+                    renderItemList(state)
+                }
+            }
+        )
     }
 
+    @OptIn(ExperimentalMaterial3Api::class)
     private fun renderItemList(state: ItemListViewState) {
+        setContent {
+            Scaffold(
+                topBar = {
+                    TopAppBar(title = { Text(state.title) })
+                },
+                bottomBar = {
+                    Row(
+                        modifier = Modifier
+                            .navigationBarsPadding()
+                            .background(Color(0xffcbda90))
+                            .fillMaxWidth()
+                    ) {
+                        BottomBarIcons()
+                    }
+                }
+            ) { padding ->
+                Column(
+                    modifier = Modifier
+                        .padding(padding)
+                ) {
 
-    }
-
-    private fun bindViews() {
-        toolbar = findViewById(R.id.toolbar)
-        setSupportActionBar(toolbar)
-
-        recyclerView = findViewById(R.id.recycler_view)
-        recyclerView.layoutManager = LinearLayoutManager(this)
-
-        adapter = ItemAdapter()
-        recyclerView.adapter = adapter
+                }
+            }
+        }
     }
 }
