@@ -14,9 +14,9 @@ class MainActivityViewModel(application: Application) : AndroidViewModel(applica
 
     init {
         val items = listOf(
-            ItemRow("Cabbage"),
-            ItemRow("Apple"),
-            ItemRow("Bread")
+            ItemRow(name = "Cabbage"),
+            ItemRow(name = "Apple"),
+            ItemRow(name = "Bread")
         )
 
         itemListViewState = ItemListViewState("Delivery Items", items)
